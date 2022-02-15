@@ -18,7 +18,7 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/create_new_basket",
+					"raw": "http://127.0.0.1:8000/api/v1/create-basket",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -30,7 +30,7 @@
 					"path": [
 						"api",
 						"v1",
-						"create_new_basket"
+						"create-basket"
 					]
 				}
 			},
@@ -100,7 +100,7 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/total_value_shopping_basket?basket_id=7",
+					"raw": "http://127.0.0.1:8000/api/v1/total-value-shopping-basket?basket_id=1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -112,12 +112,12 @@
 					"path": [
 						"api",
 						"v1",
-						"total_value_shopping_basket"
+						"total-value-shopping-basket"
 					],
 					"query": [
 						{
 							"key": "basket_id",
-							"value": "7"
+							"value": "1"
 						}
 					]
 				}
@@ -140,7 +140,7 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/total_value_shopping_basket?basket_id=7",
+					"raw": "http://127.0.0.1:8000/api/v1/basket-list-of-products?basket_id=1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -152,12 +152,12 @@
 					"path": [
 						"api",
 						"v1",
-						"total_value_shopping_basket"
+						"basket-list-of-products"
 					],
 					"query": [
 						{
 							"key": "basket_id",
-							"value": "7"
+							"value": "1"
 						}
 					]
 				}

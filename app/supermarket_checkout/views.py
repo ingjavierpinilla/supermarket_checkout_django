@@ -6,7 +6,7 @@ import json
 
 # Create your views here.
 @csrf_exempt
-def create_new_basket(request):
+def create_basket(request):
     if request.method != "POST":
         return HttpResponse(f"Wrong mehtod", status=400)
     basket = Basket.objects.create()
@@ -18,9 +18,9 @@ def total_value_shopping_basket(request):
     if request.method != "GET":
         return HttpResponse(f"Wrong mehtod", status=400)
     basket_id = request.GET.get("basket_id")
-    if basket_id is None:
+    if not basket_id:
         return HttpResponse(json.dumps({"error": "basket_id is required"}), status=400)
-    
+    print(basket_id)
     basket = get_object_or_404(Basket, pk=basket_id)
     return HttpResponse(
         json.dumps({"total_value_shopping_basket": str(basket.current_total)}),
@@ -35,7 +35,7 @@ def add_product_to_basket(request):
 
     basket_id = request.POST.get("basket_id")
     product_id = request.POST.get("product_id")
-    if basket_id is None or product_id is None:
+    if not basket_id or not product_id:
         return HttpResponse(
             json.dumps({"error": "basket_id and product_id are required"}), status=400
         )
@@ -44,7 +44,7 @@ def add_product_to_basket(request):
     basket = get_object_or_404(Basket, pk=basket_id)
     product = get_object_or_404(Product, pk=product_id)
 
-    basket.addItem(product, quantity)
+    basket.add_item(product, quantity)
 
     return HttpResponse(
         json.dumps({"current_total": str(basket.current_total)}), status=200

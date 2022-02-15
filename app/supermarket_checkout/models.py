@@ -27,7 +27,7 @@ class ShopingBasket(models.Model):
         validators=[MinValueValidator(0)],
     )
 
-    def addItem(self, product_to_add, quantity):
+    def add_item(self, product_to_add, quantity):
         product_dict = self.products.get(product_to_add.id, None)
         discount = Discount.objects.get(product=product_to_add)
 
