@@ -19,7 +19,7 @@ class Product(models.Model):
 
 
 class ShopingBasket(models.Model):
-    products = PickledObjectField(default={})
+    products = PickledObjectField(default=dict)
     current_total = models.DecimalField(
         default=0,
         decimal_places=2,

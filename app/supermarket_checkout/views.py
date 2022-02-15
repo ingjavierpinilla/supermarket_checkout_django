@@ -20,6 +20,7 @@ def total_value_shopping_basket(request):
     basket_id = request.GET.get("basket_id")
     if basket_id is None:
         return HttpResponse(json.dumps({"error": "basket_id is required"}), status=400)
+    
     basket = get_object_or_404(Basket, pk=basket_id)
     return HttpResponse(
         json.dumps({"total_value_shopping_basket": str(basket.current_total)}),
